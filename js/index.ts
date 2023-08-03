@@ -68,7 +68,7 @@ getData();
 function dataFavoritesConcat(data: fetchResultsType) {
   //Filter out results without any film
   const noFilmFilter = data.data.filter(
-    (element) => element.films.length === 0
+    (element) => element.films.length !== 0
   );
 
   //Concat fetched data with favorite

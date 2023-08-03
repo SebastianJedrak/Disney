@@ -101,7 +101,9 @@ function renderHtml(data: fetchResultsType["data"]) {
   renderList(data, allCharactersList);
 
   // Render only favorite characters list
-  const onlyFavoritesFilter = data.filter(element => element.isFavorite === true)
+  const onlyFavoritesFilter = data.filter(
+    (element) => element.isFavorite === true
+  );
   renderList(onlyFavoritesFilter, favoritesCharactersList);
 
   // Render top3 character cards
@@ -111,7 +113,13 @@ function renderHtml(data: fetchResultsType["data"]) {
 
 function renderList(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
-    .map((element) => `<li>${element.name}</li>`)
+    .map(
+      (element) => `
+    <li>
+    <img src="${element.imageUrl}" alt="${element.name}">
+    <span>${element.name}</span>
+    </li>`
+    )
     .join(" ");
 
   htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);

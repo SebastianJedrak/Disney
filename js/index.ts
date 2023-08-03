@@ -29,7 +29,14 @@ type fetchResultsType = {
 type favoritesType = {
   id: number;
   favorite: boolean;
-};
+}[];
+
+//FETCH FROM LOCAL STORAGE
+let favorites: favoritesType;
+const favoritesJson = localStorage.getItem("favorites");
+if (favoritesJson) {
+  favorites = JSON.parse("favoritesJson");
+}
 
 //FETCH DATA FROM API
 
@@ -42,7 +49,8 @@ async function getData() {
     if (!fetchJson.ok)
       throw new Error(`${fetchJson.status}: Something goes wrong`);
     const data: fetchResultsType = await fetchJson.json();
-    console.log(data.data);
+
+    console.log(dataFavoritesConcat(data));
     return data;
   } catch (err) {
     // Error Handle
@@ -55,7 +63,15 @@ getData();
 //CONCAT FAVORITES WITH FETCHED DATA
 
 function dataFavoritesConcat(data: fetchResultsType) {
-  const resultsFavoriteConcat = data;
+  const resultsFavoriteConcat = data.data.map((element) => {
+    //Fetched data with favorite match
+    const isOnFavoriteList = favorites.some(
+      (favoriteElement) => favoriteElement.id === element._id
+    );
+    return { ...element, isFavorite: isOnFavoriteList };
+  });
+
+  return resultsFavoriteConcat;
 }
 
 //RENDER LIST OF FETCHED ITEMS

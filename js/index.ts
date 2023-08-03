@@ -23,6 +23,7 @@ type fetchResultsType = {
     updatedAt: string;
     url: string;
     __v: number;
+    isFavorite?: boolean;
   }[];
 };
 
@@ -32,7 +33,10 @@ type favoritesType = {
 }[];
 
 //FETCH FROM LOCAL STORAGE
-const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!)
+const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
+
+// DOCUMENT SELECTORS
+const allCharactersList = document.querySelector(".characters-all")!;
 
 //FETCH DATA FROM API
 
@@ -44,10 +48,13 @@ async function getData() {
     const fetchJson = await fetch(url);
     if (!fetchJson.ok)
       throw new Error(`${fetchJson.status}: Something goes wrong`);
+    //data transformation
     const data: fetchResultsType = await fetchJson.json();
+    const transformedData = dataFavoritesConcat(data);
 
-    console.log(dataFavoritesConcat(data));
-    return data;
+    //render html
+    renderList(transformedData, allCharactersList);
+
   } catch (err) {
     // Error Handle
     console.log(err.message);
@@ -67,7 +74,7 @@ function dataFavoritesConcat(data: fetchResultsType) {
         (favoriteElement) => favoriteElement.id === element._id
       );
     } else {
-        isOnFavoriteList = false
+      isOnFavoriteList = false;
     }
 
     return { ...element, isFavorite: isOnFavoriteList };
@@ -78,12 +85,10 @@ function dataFavoritesConcat(data: fetchResultsType) {
 
 //RENDER LIST OF FETCHED ITEMS
 
-function renderList(
-  data: fetchResultsType,
-  //Type to add
-  htmlElement
-) {
-  const htmlToInject = ``;
+function renderList(data: fetchResultsType["data"], htmlElement: Element) {
+  const htmlToInject = data
+    .map((element) => `<li>${element.name}</li>`)
+    .join(" ");
 
   htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);
 }

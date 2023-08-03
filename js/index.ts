@@ -123,7 +123,7 @@ function renderList(data: fetchResultsType["data"], htmlElement: Element) {
     <li>
     <img src="${element.imageUrl}" alt="${element.name}">
     <span>${element.name}</span>
-    ${fillStar}
+    ${element.isFavorite ? fillStar : emptyStar}
     </li>`
     )
     .join(" ");

@@ -117,12 +117,14 @@ function renderHtml(data: fetchResultsType["data"]) {
 //RENDER LIST OF FETCHED ITEMS
 
 function renderList(data: fetchResultsType["data"], htmlElement: Element) {
+
   const htmlToInject = data
     .map(
       (element) => `
     <li>
     <img src="${element.imageUrl}" alt="${element.name}">
     <span>${element.name}</span>
+    <span>${element.films.length}</span>
     ${element.isFavorite ? fillStar : emptyStar}
     </li>`
     )

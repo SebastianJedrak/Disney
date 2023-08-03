@@ -32,11 +32,7 @@ type favoritesType = {
 }[];
 
 //FETCH FROM LOCAL STORAGE
-let favorites: favoritesType;
-const favoritesJson = localStorage.getItem("favorites");
-if (favoritesJson) {
-  favorites = JSON.parse("favoritesJson");
-}
+const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!)
 
 //FETCH DATA FROM API
 

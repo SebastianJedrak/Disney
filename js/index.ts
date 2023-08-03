@@ -51,10 +51,10 @@ async function getData() {
     //data transformation
     const data: fetchResultsType = await fetchJson.json();
     const transformedData = dataFavoritesConcat(data);
-
     console.log(transformedData);
+    
     //render html
-    renderList(transformedData, allCharactersList);
+    renderHtml(transformedData);
   } catch (err) {
     // Error Handle
     console.log(err.message);
@@ -87,6 +87,17 @@ function dataFavoritesConcat(data: fetchResultsType) {
   });
 
   return resultsFavoriteConcat;
+}
+
+//RENDER HTML
+
+function renderHtml(data: fetchResultsType["data"]) {
+  // Render all characters list
+  renderList(data, allCharactersList);
+
+  // Render only favorite characters list
+
+  // Render top3 character cards
 }
 
 //RENDER LIST OF FETCHED ITEMS

@@ -8,7 +8,7 @@ type fetchResultsType = {info: {
 },
 data: 
     {
-        _id: 6,
+        _id: number,
         films: string[],
         shortFilms: string[],
         tvShows: string[],

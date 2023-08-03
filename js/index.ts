@@ -48,7 +48,13 @@ async function getData() {
 
 getData()
 
-//Render list of fetched items
+//CONCAT FAVORITES WITH FETCHED DATA
+
+function dataFavoritesConcat(data: fetchResultsType) {
+    const resultsFavoriteConcat = data
+}
+
+//RENDER LIST OF FETCHED ITEMS
 
 function renderList(data: fetchResultsType, 
     //Type to add

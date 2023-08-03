@@ -65,9 +65,15 @@ getData();
 function dataFavoritesConcat(data: fetchResultsType) {
   const resultsFavoriteConcat = data.data.map((element) => {
     //Fetched data with favorite match
-    const isOnFavoriteList = favorites.some(
-      (favoriteElement) => favoriteElement.id === element._id
-    );
+    let isOnFavoriteList: boolean;
+    if (favorites) {
+      isOnFavoriteList = favorites.some(
+        (favoriteElement) => favoriteElement.id === element._id
+      );
+    } else {
+        isOnFavoriteList = false
+    }
+
     return { ...element, isFavorite: isOnFavoriteList };
   });
 

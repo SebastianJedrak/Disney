@@ -1,3 +1,30 @@
+// TYPES
+
+type fetchResultsType = {info: {
+    "count": number,
+    "totalPages": number,
+    "previousPage": (null | number),
+    "nextPage": string
+},
+data: 
+    {
+        "_id": 6,
+        "films": string[],
+        "shortFilms": string[],
+        "tvShows": string[],
+        "videoGames": string[],
+        "parkAttractions": string[],
+        "allies": string[],
+        "enemies": string[],
+        "sourceUrl": string,
+        "name": string,
+        "imageUrl": string,
+        "createdAt": string,
+        "updatedAt": string,
+        "url": string,
+        "__v": number
+    }[],}
+
 //FETCH DATA FROM API
 
 async function getData() {
@@ -8,7 +35,7 @@ async function getData() {
     const fetchJson = await fetch(url);
     if (!fetchJson.ok)
       throw new Error(`${fetchJson.status}: Something goes wrong`);
-    const data = await fetchJson.json();
+    const data: fetchResultsType = await fetchJson.json();
     console.log(data);
     return data;
 

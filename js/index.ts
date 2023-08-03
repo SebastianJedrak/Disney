@@ -34,9 +34,14 @@ type favoritesType = {
 
 //FETCH FROM LOCAL STORAGE
 const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
+// const test = [{id: 14, favorite: true}];
+// localStorage.setItem("favorites", JSON.stringify(test))
 
 // DOCUMENT SELECTORS
 const allCharactersList = document.querySelector(".characters-all")!;
+const favoritesCharactersList = document.querySelector(
+  ".characters-favorites"
+)!;
 
 //FETCH DATA FROM API
 
@@ -52,7 +57,7 @@ async function getData() {
     const data: fetchResultsType = await fetchJson.json();
     const transformedData = dataFavoritesConcat(data);
     console.log(transformedData);
-    
+
     //render html
     renderHtml(transformedData);
   } catch (err) {
@@ -96,6 +101,8 @@ function renderHtml(data: fetchResultsType["data"]) {
   renderList(data, allCharactersList);
 
   // Render only favorite characters list
+  const onlyFavoritesFilter = data.filter(element => element.isFavorite === true)
+  renderList(onlyFavoritesFilter, favoritesCharactersList);
 
   // Render top3 character cards
 }

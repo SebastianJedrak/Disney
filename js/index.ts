@@ -47,3 +47,13 @@ async function getData() {
 }
 
 getData()
+
+//Render list of fetched items
+
+function renderList(data: fetchResultsType, 
+    //Type to add
+    htmlElement) {
+    const htmlToInject = ``;
+
+    htmlElement.insertAdjacentHTML("afterbegin", htmlToInject)
+}

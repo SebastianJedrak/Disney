@@ -4,7 +4,7 @@ type fetchResultsType = {info: {
     count: number,
     totalPages: number,
     previousPage: (null | number),
-    nextPage: string
+    nextPage: (null | number)
 },
 data: 
     {

@@ -52,9 +52,9 @@ async function getData() {
     const data: fetchResultsType = await fetchJson.json();
     const transformedData = dataFavoritesConcat(data);
 
+    console.log(transformedData);
     //render html
     renderList(transformedData, allCharactersList);
-
   } catch (err) {
     // Error Handle
     console.log(err.message);
@@ -66,8 +66,14 @@ getData();
 //CONCAT FAVORITES WITH FETCHED DATA
 
 function dataFavoritesConcat(data: fetchResultsType) {
-  const resultsFavoriteConcat = data.data.map((element) => {
-    //Fetched data with favorite match
+  //Filter out results without any film
+  const noFilmFilter = data.data.filter(
+    (element) => element.films.length === 0
+  );
+
+  //Concat fetched data with favorite
+  const resultsFavoriteConcat = noFilmFilter.map((element) => {
+    // Match fetched data with favorite
     let isOnFavoriteList: boolean;
     if (favorites) {
       isOnFavoriteList = favorites.some(

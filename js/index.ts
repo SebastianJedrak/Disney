@@ -2,9 +2,8 @@ import { fetchResultsType, favoritesType } from "./types";
 import { renderHtml } from "./view";
 
 //FETCH FROM LOCAL STORAGE
-const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
-const test = [{id: 450, favorite: true}];
-localStorage.setItem("favorites", JSON.stringify(test))
+if (!JSON.parse(localStorage.getItem("favorites")!)) localStorage.setItem("favorites", "[]")
+let favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
 
 //FETCH DATA FROM API
 
@@ -69,7 +68,7 @@ function addListeners() {
       const starElement = target.closest(".star");
       if (!starElement) return;
       const targetId = Number(target.closest("li")!.dataset.id);
-      const favoriteElement = favorites.find(
+      const favoriteElement = favorites?.find(
         (element) => element.id === targetId
       );
       if (favoriteElement) {

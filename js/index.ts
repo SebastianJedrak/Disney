@@ -86,6 +86,7 @@ function favoriteControl() {
       const favoritesCharactersList = document.querySelector(
         ".characters-favorites"
       )!;
+      const allCharactersList = document.querySelector(".characters-all")!;
 
       // Remove from favorites
       if (favoriteElement) {
@@ -119,10 +120,19 @@ function favoriteControl() {
           starChild.classList.add("fill-star");
         });
 
+
         // update ui
+        const itemToInject =
+          targetListItem.nodeName === "TR"
+            ? targetListItem.outerHTML
+            : Array.from((allCharactersList!.lastChild! as HTMLElement).children).find((element) => {
+                const node = element as HTMLElement;
+              return  Number(node.dataset.id) === targetId;
+              })!.outerHTML;
+
         favoritesCharactersList.insertAdjacentHTML(
-          "afterbegin",
-          targetListItem.outerHTML
+          "beforeend",
+          itemToInject
         );
       }
     })

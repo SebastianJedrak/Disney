@@ -27,7 +27,7 @@ export function renderHtml(data: fetchResultsType["data"]) {
 }
 
 //RENDER LIST OF FETCHED ITEMS
-function renderList(data: fetchResultsType["data"], htmlElement: Element) {
+export function renderList(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>

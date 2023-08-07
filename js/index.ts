@@ -2,7 +2,8 @@ import { fetchResultsType, favoritesType } from "./types";
 import { renderHtml } from "./view";
 
 //FETCH FROM LOCAL STORAGE
-if (!JSON.parse(localStorage.getItem("favorites")!)) localStorage.setItem("favorites", "[]")
+if (!JSON.parse(localStorage.getItem("favorites")!))
+  localStorage.setItem("favorites", "[]");
 let favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
 
 //FETCH DATA FROM API
@@ -71,15 +72,37 @@ function addListeners() {
       const favoriteElement = favorites?.find(
         (element) => element.id === targetId
       );
+      const allTargetElementsId = document.querySelectorAll(
+        `[data-id="${targetId}"]`
+      );
+
+      // Remove from favorites
       if (favoriteElement) {
-        favorites.splice(favorites.indexOf(favoriteElement), 1)
+        // update local storage
+        favorites.splice(favorites.indexOf(favoriteElement), 1);
         localStorage.setItem("favorites", JSON.stringify(favorites));
+
+        // change icon
+        allTargetElementsId.forEach((element) => {
+          const starChild = element.querySelector(".star")!;
+          starChild.classList.remove("fill-star");
+          starChild.classList.add("empty-star");
+        });
       }
+
+      // Add to favorites
       if (!favoriteElement) {
+        // update local storage
         favorites.push({ id: targetId, favorite: true });
         localStorage.setItem("favorites", JSON.stringify(favorites));
+
+        // change icon
+        allTargetElementsId.forEach((element) => {
+          const starChild = element.querySelector(".star")!;
+          starChild.classList.remove("empty-star");
+          starChild.classList.add("fill-star");
+        });
       }
-      
     })
   );
 }

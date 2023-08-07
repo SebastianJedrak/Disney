@@ -17,6 +17,12 @@ li {
   list-style: none;
 }
 
+img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
 /* CONTAINERS */
 
 .row-container {

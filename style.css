@@ -12,3 +12,19 @@ body {
     background-color: grey;
     color:white; 
 }
+
+/* STAR */
+
+.star {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+.fill-star {
+  background-image: url("./src/fillStar.svg")
+}
+
+.empty-star {
+  background-image: url("./src/emptyStar.svg")
+}

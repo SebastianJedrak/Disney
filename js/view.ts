@@ -1,5 +1,4 @@
-import { fetchResultsType, favoritesType } from "./types";
-import { emptyStar, fillStar } from "./icons";
+import { fetchResultsType } from "./types";
 
 // DOCUMENT SELECTORS
 const allCharactersList = document.querySelector(".characters-all")!;
@@ -59,8 +58,8 @@ function renderList(
           ? `<span>${element.films.length}</span>`
           : `<span>Films:</span><span>${element.films.length}</span>`
       }
+      <span class="star ${element.isFavorite ? "fill-star" :"empty-star"}"></span>
       
-      ${element.isFavorite ? fillStar : emptyStar}
       </li>`
     )
     .join(" ");

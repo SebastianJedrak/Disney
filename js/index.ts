@@ -97,6 +97,8 @@ function addListeners() {
           starChild.classList.add("empty-star");
         });
 
+        // update ui
+        favoritesCharactersList.querySelector(`[data-id="${targetId}"]`)!.outerHTML = ""
       }
 
       // Add to favorites
@@ -113,7 +115,10 @@ function addListeners() {
         });
 
         // update ui
-        favoritesCharactersList.insertAdjacentHTML("afterbegin", targetListItem.outerHTML)
+        favoritesCharactersList.insertAdjacentHTML(
+          "afterbegin",
+          targetListItem.outerHTML
+        );
       }
     })
   );

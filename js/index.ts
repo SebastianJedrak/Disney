@@ -137,7 +137,8 @@ function searchControl() {
     const target = event.target! as HTMLInputElement;
     const inputValue = target.value.toLowerCase();
     document.querySelectorAll(".characters-search")!.forEach((element) =>
-      element.querySelectorAll("tr").forEach((element) => {
+      element.querySelectorAll("tr").forEach((element, i) => {
+        if (i === 0) return;
         //Output data
         if (!element.dataset.name!.includes(inputValue)) {
           element.classList.add("hidden");

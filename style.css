@@ -22,12 +22,6 @@ li {
   list-style: none;
 }
 
-img {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-}
-
 /* CONTAINERS */
 
 .row-container {
@@ -46,6 +40,14 @@ img {
 .header-footer {
   padding: 2.5vw 5vw ;
   background-color: blueviolet;
+}
+
+/* IMG */
+
+.img-thumbnail {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
 }
 
 /* STAR */

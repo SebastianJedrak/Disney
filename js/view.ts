@@ -66,4 +66,5 @@ function renderList(
     .join(" ");
 
   htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);
+  htmlElement.classList.add("favorite-toggle")
 }

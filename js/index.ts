@@ -6,8 +6,6 @@ const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
 // const test = [{id: 14, favorite: true}];
 // localStorage.setItem("favorites", JSON.stringify(test))
 
-
-
 //FETCH DATA FROM API
 
 async function getData() {
@@ -25,6 +23,9 @@ async function getData() {
 
     //render html
     renderHtml(transformedData);
+
+    //add listeners
+    addListeners();
   } catch (err) {
     // Error Handle
     console.log(err.message);
@@ -59,4 +60,9 @@ function dataFavoritesConcat(data: fetchResultsType) {
   return resultsFavoriteConcat;
 }
 
-
+function addListeners() {
+  const favoriteElement = document.querySelector(".favorite-toggle");
+  favoriteElement?.addEventListener("click", () => {
+    console.log("fired");
+  });
+}

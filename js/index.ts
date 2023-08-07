@@ -58,6 +58,8 @@ function dataFavoritesConcat(data: fetchResultsType) {
   return resultsFavoriteConcat;
 }
 
+// CONTROL FAVORITES
+
 function favoriteControl() {
   const favoriteElement = document.querySelectorAll(".favorite-toggle");
 
@@ -121,3 +123,12 @@ function favoriteControl() {
     })
   );
 }
+
+
+// SEARCH
+const searchBar = document.querySelector(".search-bar")
+searchBar!.addEventListener("input", (event) => {
+  const target = event.target! as HTMLInputElement
+  const inputValue = target.value
+  console.log(inputValue);
+})

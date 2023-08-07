@@ -30,6 +30,12 @@ img {
   justify-content: space-between;
 }
 
+.card {
+  padding: 2.5vw;
+  margin: 2.5vw;
+  background-color: brown;
+}
+
 /* STAR */
 
 .star {

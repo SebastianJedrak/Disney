@@ -62,7 +62,9 @@ function dataFavoritesConcat(data: fetchResultsType) {
 
 function addListeners() {
   const favoriteElement = document.querySelector(".favorite-toggle");
-  favoriteElement?.addEventListener("click", () => {
-    console.log("fired");
+  const starElement = document.querySelector(".star");
+  favoriteElement?.addEventListener("click", (event) => {
+    if (event.target !== starElement) return;
+    console.log(event.target);
   });
 }

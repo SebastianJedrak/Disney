@@ -61,10 +61,14 @@ function dataFavoritesConcat(data: fetchResultsType) {
 }
 
 function addListeners() {
-  const favoriteElement = document.querySelector(".favorite-toggle");
-  const starElement = document.querySelector(".star");
-  favoriteElement?.addEventListener("click", (event) => {
-    if (event.target !== starElement) return;
-    console.log(event.target);
-  });
+  const favoriteElement = document.querySelectorAll(".favorite-toggle");
+  
+
+  favoriteElement?.forEach(element => element.addEventListener("click", (event) => {
+    const target = event.target as Element
+    const starElement = target.closest(".star");
+    if (!starElement) return;
+    
+    console.log(target.closest("li"));
+  }))
 }

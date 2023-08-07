@@ -43,7 +43,7 @@ function renderList(
   const htmlToInject = data
     .map(
       (element) => `
-      <li>
+      <li data-id=${element._id}>
       <img src="${element.imageUrl}" alt="${element.name}">
   
       <span>${element.name}</span>

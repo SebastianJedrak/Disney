@@ -34,7 +34,7 @@ export function renderHtml(data: fetchResultsType["data"]) {
  * @htmlElement parent html element to inject html
  * @type type of rendered element
  */
-export function renderList(
+function renderList(
   data: fetchResultsType["data"],
   htmlElement: Element,
   type: "list" | "card"
@@ -42,28 +42,26 @@ export function renderList(
   const htmlToInject = data
     .map(
       (element) => `
-      <li data-id=${element._id} data-name="${element.name.toLowerCase()}">
-      <img class="img-thumbnail" src="${element.imageUrl}" alt="${element.name}">
-  
+      ${
+        type === "list" &&
+        ` <li data-id=${
+          element._id
+        } data-name="${element.name.toLowerCase()}" class="row-container">
+      <img class="img-thumbnail" src="${element.imageUrl}" alt="${
+          element.name
+        }">
       <span>${element.name}</span>
-  
-      ${
-        type === "list"
-          ? `<span>${"TV"}</span>`
-          : `<span>TV Shows:</span><span>${element.tvShows.length}</span>`
-      }
-  
-      ${
-        type === "list"
-          ? `<span>${element.films.length}</span>`
-          : `<span>Films:</span><span>${element.films.length}</span>`
-      }
-      <span class="star ${element.isFavorite ? "fill-star" :"empty-star"}"></span>
-      
+      <span class="${element.tvShows.length > 0 && "tv-icon"}"></span>
+      <span>${element.films.length}</span>
+      <span class="star ${
+        element.isFavorite ? "fill-star" : "empty-star"
+      }"></span>
       </li>`
+      }
+   `
     )
     .join(" ");
 
   htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);
-  htmlElement.classList.add("favorite-toggle")
+  htmlElement.classList.add("favorite-toggle");
 }

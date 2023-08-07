@@ -1,5 +1,5 @@
 import { fetchResultsType, favoritesType } from "./types";
-import { renderHtml, renderList } from "./view";
+import { renderHtml } from "./view";
 
 //FETCH FROM LOCAL STORAGE
 if (!JSON.parse(localStorage.getItem("favorites")!))

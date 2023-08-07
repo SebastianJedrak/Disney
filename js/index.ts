@@ -3,8 +3,8 @@ import { renderHtml } from "./view";
 
 //FETCH FROM LOCAL STORAGE
 const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
-// const test = [{id: 14, favorite: true}];
-// localStorage.setItem("favorites", JSON.stringify(test))
+const test = [{id: 450, favorite: true}];
+localStorage.setItem("favorites", JSON.stringify(test))
 
 //FETCH DATA FROM API
 
@@ -62,13 +62,25 @@ function dataFavoritesConcat(data: fetchResultsType) {
 
 function addListeners() {
   const favoriteElement = document.querySelectorAll(".favorite-toggle");
-  
 
-  favoriteElement?.forEach(element => element.addEventListener("click", (event) => {
-    const target = event.target as Element
-    const starElement = target.closest(".star");
-    if (!starElement) return;
-    
-    console.log(target.closest("li"));
-  }))
+  favoriteElement?.forEach((element) =>
+    element.addEventListener("click", (event) => {
+      const target = event.target as Element;
+      const starElement = target.closest(".star");
+      if (!starElement) return;
+      const targetId = Number(target.closest("li")!.dataset.id);
+      const favoriteElement = favorites.find(
+        (element) => element.id === targetId
+      );
+      if (favoriteElement) {
+        favorites.splice(favorites.indexOf(favoriteElement), 1)
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+      }
+      if (!favoriteElement) {
+        favorites.push({ id: targetId, favorite: true });
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+      }
+      
+    })
+  );
 }

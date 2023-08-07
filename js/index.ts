@@ -68,13 +68,21 @@ function addListeners() {
       const target = event.target as Element;
       const starElement = target.closest(".star");
       if (!starElement) return;
-      const targetId = Number(target.closest("li")!.dataset.id);
-      const favoriteElement = favorites?.find(
-        (element) => element.id === targetId
-      );
+
+      //Target selectors
+      const targetListItem = target.closest("li")!;
+      const targetId = Number(targetListItem.dataset.id);
       const allTargetElementsId = document.querySelectorAll(
         `[data-id="${targetId}"]`
       );
+
+      //Favorite selectors
+      const favoriteElement = favorites?.find(
+        (element) => element.id === targetId
+      );
+      const favoritesCharactersList = document.querySelector(
+        ".characters-favorites"
+      )!;
 
       // Remove from favorites
       if (favoriteElement) {
@@ -88,6 +96,7 @@ function addListeners() {
           starChild.classList.remove("fill-star");
           starChild.classList.add("empty-star");
         });
+
       }
 
       // Add to favorites
@@ -102,6 +111,9 @@ function addListeners() {
           starChild.classList.remove("empty-star");
           starChild.classList.add("fill-star");
         });
+
+        // update ui
+        favoritesCharactersList.insertAdjacentHTML("afterbegin", targetListItem.outerHTML)
       }
     })
   );

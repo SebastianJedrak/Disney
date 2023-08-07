@@ -7,7 +7,6 @@ if (!JSON.parse(localStorage.getItem("favorites")!))
 let favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
 
 //FETCH DATA FROM API
-
 async function getData() {
   const url = `https://api.disneyapi.dev/character?pageSize=100`;
 

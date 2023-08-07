@@ -1,36 +1,4 @@
-// TYPES
-
-type fetchResultsType = {
-  info: {
-    count: number;
-    totalPages: number;
-    previousPage: null | number;
-    nextPage: null | number;
-  };
-  data: {
-    _id: number;
-    films: string[];
-    shortFilms: string[];
-    tvShows: string[];
-    videoGames: string[];
-    parkAttractions: string[];
-    allies: string[];
-    enemies: string[];
-    sourceUrl: string;
-    name: string;
-    imageUrl: string;
-    createdAt: string;
-    updatedAt: string;
-    url: string;
-    __v: number;
-    isFavorite?: boolean;
-  }[];
-};
-
-type favoritesType = {
-  id: number;
-  favorite: boolean;
-}[];
+import {fetchResultsType, favoritesType} from "./types"
 
 //ICONS
 const emptyStar = '<svg fill="yellow" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m323-205 157-94 157 95-42-178 138-120-182-16-71-168-71 167-182 16 138 120-42 178ZM233-80l65-281L80-550l288-25 112-265 112 265 288 25-218 189 65 281-247-149L233-80Zm247-355Z"/></svg>';

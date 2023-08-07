@@ -36,6 +36,11 @@ img {
   background-color: brown;
 }
 
+.header-footer {
+  padding: 2.5vw 5vw ;
+  background-color: blueviolet;
+}
+
 /* STAR */
 
 .star {

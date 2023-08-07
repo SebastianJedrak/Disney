@@ -1,6 +1,5 @@
-import {fetchResultsType, favoritesType} from "./types"
-import {emptyStar, fillStar} from "./icons"
-
+import { fetchResultsType, favoritesType } from "./types";
+import { emptyStar, fillStar } from "./icons";
 
 //FETCH FROM LOCAL STORAGE
 const favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
@@ -12,6 +11,7 @@ const allCharactersList = document.querySelector(".characters-all")!;
 const favoritesCharactersList = document.querySelector(
   ".characters-favorites"
 )!;
+const topCharactersList = document.querySelector(".characters-top")!;
 
 //FETCH DATA FROM API
 
@@ -68,21 +68,26 @@ function dataFavoritesConcat(data: fetchResultsType) {
 
 function renderHtml(data: fetchResultsType["data"]) {
   // Render all characters list
-  renderList(data, allCharactersList);
+  renderList(data, allCharactersList, "list");
 
   // Render only favorite characters list
   const onlyFavoritesFilter = data.filter(
     (element) => element.isFavorite === true
   );
-  renderList(onlyFavoritesFilter, favoritesCharactersList);
+  renderList(onlyFavoritesFilter, favoritesCharactersList, "list");
 
   // Render top3 character cards
+  const onlyTopThreeFilter = data.sort((a,b) => b.films.length - a.films.length).slice(0, 3);
+  renderList(onlyTopThreeFilter, topCharactersList, "card");
 }
 
 //RENDER LIST OF FETCHED ITEMS
 
-function renderList(data: fetchResultsType["data"], htmlElement: Element) {
-
+function renderList(
+  data: fetchResultsType["data"],
+  htmlElement: Element,
+  type: string
+) {
   const htmlToInject = data
     .map(
       (element) => `

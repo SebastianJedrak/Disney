@@ -19,16 +19,15 @@ async function getData() {
     //data transformation
     const data: fetchResultsType = await fetchJson.json();
     const transformedData = dataFavoritesConcat(data);
-    console.log(transformedData);
 
     //render html
     renderHtml(transformedData);
 
     //add listeners
-    addListeners();
+    favoriteControl();
   } catch (err) {
     // Error Handle
-    console.log(err.message);
+    console.error(err.message);
   }
 }
 
@@ -60,7 +59,7 @@ function dataFavoritesConcat(data: fetchResultsType) {
   return resultsFavoriteConcat;
 }
 
-function addListeners() {
+function favoriteControl() {
   const favoriteElement = document.querySelectorAll(".favorite-toggle");
 
   favoriteElement?.forEach((element) =>

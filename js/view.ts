@@ -55,7 +55,7 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>
-        ` <li class="item" data-id=${element._id} >
+        ` <li class="item card" data-id=${element._id} >
       <img class="img-thumbnail" src="${element.imageUrl}" alt="${
           element.name
         }">

@@ -13,6 +13,17 @@ body {
     color:white; 
 }
 
+li {
+  list-style: none;
+}
+
+/* CONTAINERS */
+
+.row-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* STAR */
 
 .star {

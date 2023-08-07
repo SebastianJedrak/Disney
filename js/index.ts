@@ -1,5 +1,5 @@
 import { fetchResultsType, favoritesType } from "./types";
-import { renderHtml } from "./view";
+import { renderHtml, renderList } from "./view";
 
 //FETCH FROM LOCAL STORAGE
 if (!JSON.parse(localStorage.getItem("favorites")!))
@@ -7,6 +7,8 @@ if (!JSON.parse(localStorage.getItem("favorites")!))
 let favorites: favoritesType = JSON.parse(localStorage.getItem("favorites")!);
 
 //FETCH DATA FROM API
+let transformedData: fetchResultsType["data"];
+
 async function getData() {
   const url = `https://api.disneyapi.dev/character?pageSize=100`;
 
@@ -17,13 +19,14 @@ async function getData() {
       throw new Error(`${fetchJson.status}: Something goes wrong`);
     //data transformation
     const data: fetchResultsType = await fetchJson.json();
-    const transformedData = dataFavoritesConcat(data);
+    transformedData = dataFavoritesConcat(data);
 
     //render html
     renderHtml(transformedData);
 
     //add listeners
     favoriteControl();
+    searchControl();
   } catch (err) {
     // Error Handle
     console.error(err.message);
@@ -98,7 +101,9 @@ function favoriteControl() {
         });
 
         // update ui
-        favoritesCharactersList.querySelector(`[data-id="${targetId}"]`)!.outerHTML = ""
+        favoritesCharactersList.querySelector(
+          `[data-id="${targetId}"]`
+        )!.outerHTML = "";
       }
 
       // Add to favorites
@@ -124,11 +129,23 @@ function favoriteControl() {
   );
 }
 
-
 // SEARCH
-const searchBar = document.querySelector(".search-bar")
-searchBar!.addEventListener("input", (event) => {
-  const target = event.target! as HTMLInputElement
-  const inputValue = target.value
-  console.log(inputValue);
-})
+const searchBar = document.querySelector(".search-bar");
+function searchControl() {
+  searchBar!.addEventListener("input", (event) => {
+    //Selectors
+    const target = event.target! as HTMLInputElement;
+    const inputValue = target.value.toLowerCase();
+    document.querySelectorAll(".characters-search")!.forEach((element) =>
+      element.querySelectorAll("li").forEach((element) => {
+        //Output data
+        if (!element.dataset.name!.includes(inputValue)) {
+          element.classList.add("hidden");
+        }
+        if (element.dataset.name!.includes(inputValue)) {
+          element.classList.remove("hidden");
+        }
+      })
+    );
+  });
+}

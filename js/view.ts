@@ -34,7 +34,7 @@ export function renderHtml(data: fetchResultsType["data"]) {
  * @htmlElement parent html element to inject html
  * @type type of rendered element
  */
-function renderList(
+export function renderList(
   data: fetchResultsType["data"],
   htmlElement: Element,
   type: "list" | "card"
@@ -42,7 +42,7 @@ function renderList(
   const htmlToInject = data
     .map(
       (element) => `
-      <li data-id=${element._id}>
+      <li data-id=${element._id} data-name="${element.name.toLowerCase()}">
       <img class="img-thumbnail" src="${element.imageUrl}" alt="${element.name}">
   
       <span>${element.name}</span>

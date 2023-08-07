@@ -11,39 +11,26 @@ const topCharactersList = document.querySelector(".characters-top")!;
 
 export function renderHtml(data: fetchResultsType["data"]) {
   // Render all characters list
-  renderList(data, allCharactersList, "list");
+  renderList(data, allCharactersList);
 
   // Render only favorite characters list
   const onlyFavoritesFilter = data.filter(
     (element) => element.isFavorite === true
   );
-  renderList(onlyFavoritesFilter, favoritesCharactersList, "list");
+  renderList(onlyFavoritesFilter, favoritesCharactersList);
 
   // Render top3 character cards
   const onlyTopThreeFilter = data
     .sort((a, b) => b.films.length - a.films.length)
     .slice(0, 3);
-  renderList(onlyTopThreeFilter, topCharactersList, "card");
+  renderCard(onlyTopThreeFilter, topCharactersList);
 }
 
 //RENDER LIST OF FETCHED ITEMS
-
-/**
- * Render array of data in UI
- * @data array od data
- * @htmlElement parent html element to inject html
- * @type type of rendered element
- */
-function renderList(
-  data: fetchResultsType["data"],
-  htmlElement: Element,
-  type: "list" | "card"
-) {
+function renderList(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
-      (element) => `
-      ${
-        type === "list" &&
+      (element) =>
         ` <li data-id=${
           element._id
         } data-name="${element.name.toLowerCase()}" class="row-container">
@@ -57,7 +44,29 @@ function renderList(
         element.isFavorite ? "fill-star" : "empty-star"
       }"></span>
       </li>`
-      }
+    )
+    .join(" ");
+
+  htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);
+  htmlElement.classList.add("favorite-toggle");
+}
+
+//RENDER LIST OF FETCHED ITEMS
+function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
+  const htmlToInject = data
+    .map(
+      (element) =>
+        ` <li data-id=${element._id} >
+      <img class="img-thumbnail" src="${element.imageUrl}" alt="${
+          element.name
+        }">
+      <span>${element.name}</span>
+      <span></span>
+      <span>${element.films.length}</span>
+      <span class="star ${
+        element.isFavorite ? "fill-star" : "empty-star"
+      }"></span>
+      </li>
    `
     )
     .join(" ");

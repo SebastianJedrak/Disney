@@ -31,23 +31,22 @@ function renderList(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>
-        ` <li data-id=${
-          element._id
-        } data-name="${element.name.toLowerCase()}" class="row-container">
-      <img class="img-thumbnail" src="${element.imageUrl}" alt="${
+        ` <tr data-id=${element._id} data-name="${element.name.toLowerCase()}" >
+        <td><img class="img-thumbnail" src="${element.imageUrl}" alt="${
           element.name
-        }">
-      <span>${element.name}</span>
-      <span class="${element.tvShows.length > 0 && "tv-icon"}"></span>
-      <span>${element.films.length}</span>
-      <span class="star ${
+        }"></td>
+      <td><span>${element.name}</span> <span class="${
+          element.tvShows.length > 0 && "tv-icon"
+        }"></span></td>
+      <td>  <span>${element.films.length}</span></td>
+      <td><span class="star ${
         element.isFavorite ? "fill-star" : "empty-star"
-      }"></span>
-      </li>`
+      }"></span></td> 
+     </tr>`
     )
     .join(" ");
 
-  htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);
+  htmlElement.insertAdjacentHTML("beforeend", htmlToInject);
   htmlElement.classList.add("favorite-toggle");
 }
 

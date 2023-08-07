@@ -73,7 +73,7 @@ function favoriteControl() {
       if (!starElement) return;
 
       //Target selectors
-      const targetListItem = target.closest("li")!;
+      const targetListItem = target.closest("tr")!;
       const targetId = Number(targetListItem.dataset.id);
       const allTargetElementsId = document.querySelectorAll(
         `[data-id="${targetId}"]`
@@ -137,7 +137,7 @@ function searchControl() {
     const target = event.target! as HTMLInputElement;
     const inputValue = target.value.toLowerCase();
     document.querySelectorAll(".characters-search")!.forEach((element) =>
-      element.querySelectorAll("li").forEach((element) => {
+      element.querySelectorAll("tr").forEach((element) => {
         //Output data
         if (!element.dataset.name!.includes(inputValue)) {
           element.classList.add("hidden");

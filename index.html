@@ -20,8 +20,8 @@
   <body>
     <!-- HEADER -->
     <header class="row-container header-footer">
-        <h1>DISNEY</h1>
-        <span><a href="#">My Favorites</a></span>
+      <h1>DISNEY</h1>
+      <span><a href="#">My Favorites</a></span>
     </header>
 
     <!-- SECTION MOST POPULAR -->
@@ -36,20 +36,38 @@
       <div class="card">
         <h3>The Best Animated Disney Characters of All Time</h3>
         <label for="search">Search for a character</label>
-        <input type="search" id="search" class="search-bar"/>
+        <input type="search" id="search" class="search-bar" />
       </div>
 
       <div class="row-container">
         <!-- All List -->
         <div class="card">
-          <h4>Disney Characters</h4>
-          <ul class="characters-all characters-search"></ul>
+          <table class="characters-all characters-search">
+            <caption>
+              Disney Characters
+            </caption>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Films Count</th>
+              <th>Favorites</th>
+            </tr>
+          </table>
         </div>
 
         <!-- Favorite List -->
         <div class="card">
-          <h4>My Favorites</h4>
-          <ul class="characters-favorites characters-search"></ul>
+          <table class="characters-favorites characters-search">
+            <caption>
+              Disney Characters
+            </caption>
+            <tr>
+              <th>Picture</th>
+              <th>Name</th>
+              <th>Films Count</th>
+              <th>Favorites</th>
+            </tr>
+          </table>
         </div>
       </div>
     </section>

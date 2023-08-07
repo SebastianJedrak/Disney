@@ -73,7 +73,7 @@ function favoriteControl() {
       if (!starElement) return;
 
       //Target selectors
-      const targetListItem = target.closest("tr")!;
+      const targetListItem = target.closest(".item")! as HTMLElement;
       const targetId = Number(targetListItem.dataset.id);
       const allTargetElementsId = document.querySelectorAll(
         `[data-id="${targetId}"]`

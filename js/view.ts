@@ -31,7 +31,7 @@ function renderList(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>
-        ` <tr data-id=${element._id} data-name="${element.name.toLowerCase()}" >
+        ` <tr class="item" data-id=${element._id} data-name="${element.name.toLowerCase()}" >
         <td><img class="img-thumbnail" src="${element.imageUrl}" alt="${
           element.name
         }"></td>
@@ -55,16 +55,19 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>
-        ` <li data-id=${element._id} >
+        ` <li class="item" data-id=${element._id} >
       <img class="img-thumbnail" src="${element.imageUrl}" alt="${
           element.name
         }">
-      <span>${element.name}</span>
-      <span></span>
-      <span>${element.films.length}</span>
-      <span class="star ${
-        element.isFavorite ? "fill-star" : "empty-star"
-      }"></span>
+        <div class="row-container"> <h5>${element.name}</h5>
+        <span class="star ${
+          element.isFavorite ? "fill-star" : "empty-star"
+        }"></span></div>
+     
+      <p><span>Films:</span>
+      <span>${element.films.length}</span></p>
+      <p><span>TV Shows:</span>
+      <span>${element.tvShows.length}</span></p>
       </li>
    `
     )

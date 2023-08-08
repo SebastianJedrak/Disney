@@ -42,6 +42,8 @@ async function getData() {
     //Favorites route
     if (window.location.pathname === "/favorites.html") {
       renderFavorites(transformedData);
+      favoriteControl();
+
     }
   } catch (err) {
     // Error Handle

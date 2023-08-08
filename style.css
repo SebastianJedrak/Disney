@@ -37,6 +37,10 @@ a {
 
 /* CONTAINERS */
 
+section {
+  margin: 0 2.5vw;
+}
+
 .row-container {
   display: flex;
   justify-content: space-between;
@@ -46,28 +50,32 @@ a {
   align-items: end;
 }
 
+
 .card {
+  width: 100%;
   padding: 2.5vw;
-  margin: 2.5vw;
+  margin: 0 2.5vw;
+  margin-bottom: 2.5vw;
   background-color: brown;
   border-radius: 5px;
   box-shadow: 2.5px 2.5px 10px 1px black;
-}
-
-.header-footer {
-  padding: 1rem 5vw;
-  background-color: blueviolet;
-}
-
-header {
-  margin-bottom: 2.5vw;
 }
 
 .hidden {
   display: none;
 }
 
-/* NAVIGATION */
+/* HEADER */
+
+
+header {
+  margin-bottom: 2.5vw;
+}
+
+.header-footer {
+  padding: 1rem 5vw;
+  background-color: blueviolet;
+}
 
 nav span {
   margin-right: 1rem;

@@ -46,7 +46,7 @@ export function renderList(
       <span>${element.name}</span> 
       <span class="${element.tvShows.length > 0 && "tv-icon"}">
       <ul class="tooltip hidden">${element.tvShows.map(
-        (element) => `<l1>${element}</l1> `
+        (element) => `<l1>- ${element}</l1> `
       ).join("\r\n")}</ul>
       </span>
       </td>

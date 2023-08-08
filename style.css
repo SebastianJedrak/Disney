@@ -88,10 +88,21 @@ li {
 
 .tooltip {
   position: absolute;
-  bottom: 30px;
-  left: 15px;
+  bottom: 40px;
+  left: 10px;
   white-space: pre;
   background-color: blue;
   padding: 0.6rem;
   border-radius: 5px;
+}
+
+.tooltip::after {
+  position: absolute;
+  bottom: -7px;
+  left: 6px;
+  transform: rotate(45deg);
+  content: "";
+  height: 16px;
+  width: 16px;
+  background-color: inherit;
 }

@@ -46,9 +46,10 @@ li {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
+
 
 /* CONTAINERS */
 
@@ -80,19 +81,34 @@ a {
   display: none;
 }
 
-/* HEADER */
-
-header {
-  margin-bottom: 2.5vw;
-}
+/* HEADER FOOTER */
 
 .header-footer {
-  padding: 1rem 5vw;
+  
   background-color: blueviolet;
+}
+
+header {
+  padding: 1rem 5vw;
+  margin-bottom: 2.5vw;
 }
 
 nav span {
   margin-right: 1rem;
+}
+
+footer {
+  padding: 1rem 15vw;
+  text-align: center;
+}
+
+footer p > a {
+  text-decoration: underline;
+}
+
+footer button {
+  margin-top: 1rem;
+  padding: .6rem;
 }
 
 /* SEARCH */

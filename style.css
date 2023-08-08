@@ -121,7 +121,6 @@ nav span {
   max-width: 500px;
 }
 
-
 /* IMG */
 
 .img-thumbnail {
@@ -140,7 +139,7 @@ nav span {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: max-content;
-  padding: 0.8rem;
+  padding: 0 0.6rem 0.3rem;
 }
 
 .content-card h5 {
@@ -209,6 +208,31 @@ nav span {
   width: 16px;
   background-color: inherit;
 }
+
+/* LISTS */
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: start;
+  font-size: 1.2rem;
+}
+
+th:last-child ,td:last-child {
+  text-align: end;
+  padding-left: 1rem;
+}
+
+.table-name {
+  width: 100%;
+}
+
+.name-cell {
+  display: flex;
+}
+
 
 @media (max-width: 1000px) {
   .content-card h5 {

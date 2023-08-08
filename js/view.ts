@@ -37,7 +37,7 @@ export function renderList(
   const htmlToInject = data
     .map(
       (element) =>
-        ` <tr class="item" data-id=${
+        ` <tr class="item " data-id=${
           element._id
         } data-name="${element.name.toLowerCase()}" >
 
@@ -45,7 +45,7 @@ export function renderList(
           element.name
         }"></td>
 
-      <td>
+      <td class="name-cell">
       <span>${element.name}</span> 
       <span class="${element.tvShows.length > 0 && "tv-icon"}">
       <ul class="tooltip hidden">${element.tvShows
@@ -68,7 +68,7 @@ export function renderList(
   htmlElement.classList.add("favorite-toggle");
 }
 
-//RENDER LIST OF FETCHED ITEMS
+//RENDER LIST OF CARDS
 function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(

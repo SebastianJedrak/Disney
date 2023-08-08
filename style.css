@@ -46,10 +46,15 @@ section {
   justify-content: space-between;
 }
 
+@media (max-width: 650px) {
+  .row-container {
+    flex-wrap: wrap;
+  }
+}
+
 .align-bottom-container {
   align-items: end;
 }
-
 
 .card {
   width: 100%;
@@ -67,7 +72,6 @@ section {
 
 /* HEADER */
 
-
 header {
   margin-bottom: 2.5vw;
 }
@@ -80,7 +84,6 @@ header {
 nav span {
   margin-right: 1rem;
 }
-
 
 /* IMG */
 

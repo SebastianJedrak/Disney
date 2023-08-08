@@ -41,7 +41,7 @@ li {
 }
 
 .header-footer {
-  padding: 2.5vw 5vw;
+  padding: 1rem 5vw;
   background-color: blueviolet;
 }
 
@@ -55,6 +55,10 @@ li {
   width: 48px;
   height: 48px;
   object-fit: cover;
+}
+
+.header-logo {
+  height: 60px;
 }
 
 /* STAR */

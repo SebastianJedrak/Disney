@@ -16,20 +16,28 @@ body {
 
 h2,
 h3,
-h4,
+h4, h5,
 caption {
   text-align: center;
   margin-bottom: 2rem;
+  font-weight: 300;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: 300;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4, caption {
+  font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 1.6rem;
-  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 0;
 }
 
 li {
@@ -94,16 +102,18 @@ nav span {
   background: url("/src/Mickey_Mouse.png") brown no-repeat;
   background-size: 25%;
   background-position: 20px 0;
-  height: 30vh;
+  min-height: 30vh;
+  height: fit-content;
   display: flex;
   justify-content: end;
   align-items: center;
 }
 
 .search-section h3 {
-  width: 30%;
+  width: 40%;
   margin-bottom: 0;
-  margin-right: 5vw;
+  margin-right: 3vw;
+  text-align: start;
 }
 
 .search-bar {
@@ -206,9 +216,24 @@ nav span {
   .content-card h5 {
     max-width: 7ch;
   }
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  h4, caption {
+    font-size: 1.4rem;
+  }
+  
+  h5 {
+    font-size: 1.3rem;
+  }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .row-container {
     flex-wrap: wrap;
   }
@@ -225,5 +250,20 @@ nav span {
   }
   .content-card h5 {
     max-width: 100%;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  h4, caption {
+    font-size: 1.3rem;
+  }
+  
+  h5 {
+    font-size: 1.2rem;
   }
 }

@@ -37,8 +37,8 @@ h4, caption {
 }
 
 h5 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: .8rem;
 }
 
 li {
@@ -101,34 +101,26 @@ nav span {
 /* SEARCH */
 .search-section {
   background: url("/src/Mickey_Mouse.png") brown no-repeat;
-  background-size: 25%;
-  background-position: 20px 0;
+  background-size: calc(10% + 40vh);
+  background-position: 90%;
   min-height: 30vh;
   height: fit-content;
-  display: flex;
-  justify-content: end;
-  align-items: start;
 }
 
-.search-section h3 {
-  width: 40%;
-  margin-bottom: 0;
-  margin-right: 3vw;
+.search-wrapper{
+  width: 40%
+}
+
+.search-section h3, h5 {  
+  text-align: start;
 }
 
 .search-bar {
   height: 32px;
-  width: 200px;
+  width: 100%;
+  max-width: 500px;
 }
 
-.search-container {
-  width: 200px;
-  text-align: end;
-}
-
-.search-container h5 {
-  text-align: end;
-}
 
 /* IMG */
 
@@ -160,7 +152,7 @@ nav span {
 
 .img-card {
   background: no-repeat center;
-  height: 30vh;
+  height: 35vh;
   background-position: top;
   background-size: cover;
   padding: 0;
@@ -245,14 +237,16 @@ nav span {
   }
 
   .search-section {
-    justify-content: center;
+
     background: brown;
   }
-  .search-container {
-    width: 40vw;
-  }
-  .search-bar {
+
+  .search-wrapper {
+    display: flex;
     width: 100%;
+  }
+  .search-container {
+    margin-left: 10vw
   }
   .content-card h5 {
     max-width: 100%;

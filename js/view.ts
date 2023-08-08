@@ -103,7 +103,7 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
 
 //RENDER SEARCH INFO
 function renderSearchCount(data: fetchResultsType["data"]) {
-  const htmlToInject = `<h5>List of ${data.length} Characters with own Films</h5>`;
+  const htmlToInject = `<h5>Search within a List of ${data.length} Characters with own Films</h5>`;
 
   document
     .querySelector(".search-container")!

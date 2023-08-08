@@ -67,6 +67,7 @@ const favoritesCharactersList = document.querySelector(
   ".characters-favorites"
 )!;
 const allCharactersList = document.querySelector(".characters-all")!;
+const searchCharacters = document.querySelectorAll(".characters-search")!;
 
 // CONTROL FAVORITES
 
@@ -89,7 +90,6 @@ function favoriteControl() {
         (element) => element.id === targetId
       );
 
-
       // Remove from favorites
       if (favoriteElement) {
         // update local storage
@@ -104,9 +104,9 @@ function favoriteControl() {
         });
 
         // update ui
-        favoritesCharactersList.querySelector(
-          `[data-id="${targetId}"]`
-        )!.remove();
+        favoritesCharactersList
+          .querySelector(`[data-id="${targetId}"]`)!
+          .remove();
       }
 
       // Add to favorites
@@ -122,20 +122,18 @@ function favoriteControl() {
           starChild.classList.add("fill-star");
         });
 
-
         // update ui
         const itemToInject =
           targetListItem.nodeName === "TR"
             ? targetListItem.outerHTML
-            : Array.from((allCharactersList!.lastChild! as HTMLElement).children).find((element) => {
+            : Array.from(
+                (allCharactersList!.lastChild! as HTMLElement).children
+              ).find((element) => {
                 const node = element as HTMLElement;
-              return  Number(node.dataset.id) === targetId;
+                return Number(node.dataset.id) === targetId;
               })!.outerHTML;
 
-        favoritesCharactersList.insertAdjacentHTML(
-          "beforeend",
-          itemToInject
-        );
+        favoritesCharactersList.insertAdjacentHTML("beforeend", itemToInject);
       }
     })
   );
@@ -148,7 +146,7 @@ function searchControl() {
     //Selectors
     const target = event.target! as HTMLInputElement;
     const inputValue = target.value.toLowerCase();
-    document.querySelectorAll(".characters-search")!.forEach((element) =>
+    searchCharacters.forEach((element) =>
       element.querySelectorAll("tr").forEach((element, i) => {
         if (i === 0) return;
         //Output data

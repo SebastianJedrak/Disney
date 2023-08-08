@@ -52,12 +52,6 @@ section {
   justify-content: space-between;
 }
 
-@media (max-width: 650px) {
-  .row-container {
-    flex-wrap: wrap;
-  }
-}
-
 .align-bottom-container {
   align-items: end;
 }
@@ -95,6 +89,33 @@ nav span {
   margin-right: 1rem;
 }
 
+/* SEARCH */
+.search-section {
+  background: url("/src/Mickey_Mouse.png") brown no-repeat;
+  background-size: 25%;
+  background-position: 20px 0;
+  height: 30vh;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  
+}
+
+.search-section h3 {
+  width: 30%;
+  margin-bottom: 0;
+  margin-right: 5vw;
+}
+
+.search-bar {
+  height: 32px;
+  width: 200px;
+}
+
+.search-container {
+  width: 200px;
+}
+
 /* IMG */
 
 .img-thumbnail {
@@ -113,12 +134,12 @@ nav span {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: max-content;
-  padding: .8rem;
+  padding: 0.8rem;
 }
 
 .img-card {
   background: no-repeat center;
-  height: 50vh;
+  height: 40vh;
   background-size: cover;
   padding: 0;
   display: flex;
@@ -173,4 +194,22 @@ nav span {
   height: 16px;
   width: 16px;
   background-color: inherit;
+}
+
+
+@media (max-width: 650px) {
+  .row-container {
+    flex-wrap: wrap;
+  }
+
+  .search-section {
+    justify-content: center;
+    background: brown;
+  }
+  .search-container {
+    width: 40vw
+  }
+  .search-bar {
+    width: 100%
+  }
 }

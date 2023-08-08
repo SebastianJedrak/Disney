@@ -121,7 +121,7 @@ nav span {
 /* IMG */
 
 .img-thumbnail {
-  width: 48px;
+  width: 62px;
   height: 48px;
   object-fit: cover;
 }
@@ -219,12 +219,12 @@ th {
 
 th:last-child ,td:last-child {
   text-align: end;
-  padding-left: .5rem;
+  padding-left: 1rem;
 }
 
 .table-name {
   width: 100%;
-  padding-left: .5rem;
+  padding-left: 1rem;
 }
 .table-title {
   display: inline-block;

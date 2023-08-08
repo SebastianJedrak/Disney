@@ -82,7 +82,6 @@ const searchCharacters = document.querySelectorAll(".characters-search")!;
 function favoriteControl() {
   favoriteElement!.forEach((element) =>
     element.addEventListener("click", (event) => {
-      console.log("object");
       const target = event.target as Element;
       const starElement = target.closest(".star");
       if (!starElement) return;

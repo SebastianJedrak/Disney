@@ -45,9 +45,9 @@ export function renderList(
       <td>
       <span>${element.name}</span> 
       <span class="${element.tvShows.length > 0 && "tv-icon"}">
-      <ul class="tooltip hidden">${element.tvShows.map(
-        (element) => `<l1>- ${element}</l1> `
-      ).join("\r\n")}</ul>
+      <ul class="tooltip hidden">${element.tvShows
+        .map((element) => `<l1>- ${element}</l1> `)
+        .join("\r\n")}</ul>
       </span>
       </td>
 
@@ -70,23 +70,24 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>
-        ` <li class="item card" data-id=${element._id} >
+        ` <li class="item card  img-card" data-id=${
+          element._id
+        } style="background-image: url(${element.imageUrl})">
 
-          <img class="img-thumbnail" src="${element.imageUrl}" alt="${
-          element.name
-        }">
+         
+<div class="content-card">  
+<div class="row-container">   
+<h5>${element.name}</h5>
+<span class="star ${
+          element.isFavorite ? "fill-star" : "empty-star"
+        }"></span></div>
 
-          <div class="row-container">   
-            <h5>${element.name}</h5>
-            <span class="star ${
-              element.isFavorite ? "fill-star" : "empty-star"
-            }"></span></div>
-     
-      <p><span>Films:</span>
-      <span>${element.films.length}</span></p>
+<p><span>Films:</span>
+<span>${element.films.length}</span></p>
 
-      <p><span>TV Shows:</span>
-      <span>${element.tvShows.length}</span></p>
+<p><span>TV Shows:</span>
+<span>${element.tvShows.length}</span></p></div>
+        
 
       </li>
    `

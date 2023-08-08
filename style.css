@@ -139,7 +139,8 @@ nav span {
 
 .img-card {
   background: no-repeat center;
-  height: 40vh;
+  height: 30vh;
+  background-position: top;
   background-size: cover;
   padding: 0;
   display: flex;

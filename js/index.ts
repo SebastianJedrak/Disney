@@ -11,10 +11,17 @@ let transformedData: fetchResultsType["data"];
 
 async function getData() {
   const url = `https://api.disneyapi.dev/character?pageSize=100`;
+  const options = {
+    method: "GET",
+    mode: 'cors' as RequestMode,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
   try {
     // Fetch
-    const fetchJson = await fetch(url);
+    const fetchJson = await fetch(url, options);
     if (!fetchJson.ok)
       throw new Error(`${fetchJson.status}: Something goes wrong`);
     //data transformation

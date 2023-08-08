@@ -45,8 +45,8 @@ export function renderList(
           element.name
         }"></td>
 
-      <td class="name-cell">
-      <span>${element.name}</span> 
+      <td class="table-name">
+      <span class="table-title">${element.name}</span> 
       <span class="${element.tvShows.length > 0 && "tv-icon"}">
       <ul class="tooltip hidden">${element.tvShows
         .map((element) => `<l1>- ${element}</l1> `)

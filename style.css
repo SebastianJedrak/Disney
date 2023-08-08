@@ -52,9 +52,6 @@ a {
 
 /* CONTAINERS */
 
-section {
-  margin: 0 2.5vw;
-}
 
 .row-container {
   display: flex;
@@ -174,8 +171,8 @@ nav span {
   background-position: center;
   background-size: contain;
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
 }
 
 .fill-star {
@@ -222,19 +219,24 @@ th {
 
 th:last-child ,td:last-child {
   text-align: end;
-  padding-left: 1rem;
+  padding-left: .5rem;
 }
 
 .table-name {
   width: 100%;
+  padding-left: .5rem;
 }
-
-.name-cell {
-  display: flex;
+.table-title {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-
 
 @media (max-width: 1000px) {
+  .table-title {
+    max-width: 7ch;
+  }
   .content-card h5 {
     max-width: 7ch;
   }
@@ -256,6 +258,9 @@ th:last-child ,td:last-child {
 }
 
 @media (max-width: 700px) {
+  .table-title {
+    max-width: 15ch;
+  }
   .row-container {
     flex-wrap: wrap;
   }

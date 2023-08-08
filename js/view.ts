@@ -76,7 +76,7 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
 
          
 <div class="content-card">  
-<div class="row-container">   
+<div class="row-container align-center-container">   
 <h5>${element.name}</h5>
 <span class="star ${
           element.isFavorite ? "fill-star" : "empty-star"

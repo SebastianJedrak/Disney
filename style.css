@@ -6,6 +6,7 @@
   margin: 0;
   font-size: 16px;
   font-family: "Lato", sans-serif;
+  line-height: 1.5;
 }
 
 body {
@@ -23,6 +24,11 @@ caption {
 
 h2 {
   font-size: 2rem;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1.6rem;
   font-weight: 300;
 }
 
@@ -54,6 +60,10 @@ section {
 
 .align-bottom-container {
   align-items: end;
+}
+
+.align-center-container {
+  align-items: center;
 }
 
 .card {
@@ -100,7 +110,7 @@ nav span {
 /* CARD */
 
 .content-card {
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: max-content;
   padding: .8rem;

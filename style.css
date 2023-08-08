@@ -39,8 +39,6 @@ li {
   box-shadow: 2.5px 2.5px 10px 1px black;
 }
 
-
-
 .header-footer {
   padding: 2.5vw 5vw;
   background-color: blueviolet;
@@ -68,6 +66,7 @@ li {
 }
 
 .tv-icon {
+  position: relative;
   background-image: url("./src/tv.svg");
   background-position: center;
   background-size: contain;
@@ -82,4 +81,11 @@ li {
 
 .empty-star {
   background-image: url("./src/emptyStar.svg");
+}
+
+/* TOOLTIP */
+
+.tooltip {
+position: absolute;
+bottom: 120px;
 }

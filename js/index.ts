@@ -164,11 +164,25 @@ function searchControl() {
 
 // TOOLTIP
 function tooltipControl() {
+  // Hoover
   searchCharacters.forEach((element) =>
     element.addEventListener("mouseover", (event) => {
       const target = event.target as Element;
       const tvElement = target.closest(".tv-icon");
       if (!tvElement) return;
+
+      tvElement.querySelector(".tooltip")!.classList.remove("hidden");
+    })
+  );
+
+  // Leave
+  searchCharacters.forEach((element) =>
+    element.addEventListener("mouseout", (event) => {
+      const target = event.target as Element;
+      const tvElement = target.closest(".tv-icon");
+      if (!tvElement) return;
+
+      tvElement.querySelector(".tooltip")!.classList.add("hidden");
     })
   );
 }

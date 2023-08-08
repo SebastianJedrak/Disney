@@ -27,21 +27,36 @@ export function renderHtml(data: fetchResultsType["data"]) {
 }
 
 //RENDER LIST OF FETCHED ITEMS
-export function renderList(data: fetchResultsType["data"], htmlElement: Element) {
+export function renderList(
+  data: fetchResultsType["data"],
+  htmlElement: Element
+) {
   const htmlToInject = data
     .map(
       (element) =>
-        ` <tr class="item" data-id=${element._id} data-name="${element.name.toLowerCase()}" >
+        ` <tr class="item" data-id=${
+          element._id
+        } data-name="${element.name.toLowerCase()}" >
+
         <td><img class="img-thumbnail" src="${element.imageUrl}" alt="${
           element.name
         }"></td>
-      <td><span>${element.name}</span> <span class="${
-          element.tvShows.length > 0 && "tv-icon"
-        }"></span></td>
+
+      <td>
+      <span>${element.name}</span> 
+      <span class="${element.tvShows.length > 0 && "tv-icon"}">
+      <ul class="tooltip hidden">${element.tvShows.map(
+        (element) => `<l1>${element}</l1> `
+      )}</ul>
+      </span>
+      </td>
+
       <td>  <span>${element.films.length}</span></td>
+
       <td><span class="star ${
         element.isFavorite ? "fill-star" : "empty-star"
       }"></span></td> 
+
      </tr>`
     )
     .join(" ");
@@ -56,18 +71,23 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
     .map(
       (element) =>
         ` <li class="item card" data-id=${element._id} >
-      <img class="img-thumbnail" src="${element.imageUrl}" alt="${
+
+          <img class="img-thumbnail" src="${element.imageUrl}" alt="${
           element.name
         }">
-        <div class="row-container"> <h5>${element.name}</h5>
-        <span class="star ${
-          element.isFavorite ? "fill-star" : "empty-star"
-        }"></span></div>
+
+          <div class="row-container">   
+            <h5>${element.name}</h5>
+            <span class="star ${
+              element.isFavorite ? "fill-star" : "empty-star"
+            }"></span></div>
      
       <p><span>Films:</span>
       <span>${element.films.length}</span></p>
+
       <p><span>TV Shows:</span>
       <span>${element.tvShows.length}</span></p>
+
       </li>
    `
     )

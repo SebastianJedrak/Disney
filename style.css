@@ -33,11 +33,12 @@ h3 {
 
 h4, caption {
   font-size: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 h5 {
   font-size: 1.4rem;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
 li {
@@ -106,14 +107,13 @@ nav span {
   height: fit-content;
   display: flex;
   justify-content: end;
-  align-items: center;
+  align-items: start;
 }
 
 .search-section h3 {
   width: 40%;
   margin-bottom: 0;
   margin-right: 3vw;
-  text-align: start;
 }
 
 .search-bar {
@@ -123,6 +123,11 @@ nav span {
 
 .search-container {
   width: 200px;
+  text-align: end;
+}
+
+.search-container h5 {
+  text-align: end;
 }
 
 /* IMG */
@@ -150,6 +155,7 @@ nav span {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-bottom: 0;
 }
 
 .img-card {

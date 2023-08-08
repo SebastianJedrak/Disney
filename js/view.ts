@@ -24,6 +24,9 @@ export function renderHtml(data: fetchResultsType["data"]) {
     .sort((a, b) => b.films.length - a.films.length)
     .slice(0, 3);
   renderCard(onlyTopThreeFilter, topCharactersList);
+
+  // Render search info
+  renderSearchCount(data);
 }
 
 //RENDER LIST OF FETCHED ITEMS
@@ -96,4 +99,13 @@ function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
 
   htmlElement.insertAdjacentHTML("afterbegin", htmlToInject);
   htmlElement.classList.add("favorite-toggle");
+}
+
+//RENDER SEARCH INFO
+function renderSearchCount(data: fetchResultsType["data"]) {
+  const htmlToInject = `<h5>List of ${data.length} Characters with own Films</h5>`;
+
+  document
+    .querySelector(".search-container")!
+    .insertAdjacentHTML("afterbegin", htmlToInject);
 }

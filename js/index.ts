@@ -61,11 +61,16 @@ function dataFavoritesConcat(data: fetchResultsType) {
   return resultsFavoriteConcat;
 }
 
+// SELECTORS
+const favoriteElement = document.querySelectorAll(".favorite-toggle");
+const favoritesCharactersList = document.querySelector(
+  ".characters-favorites"
+)!;
+const allCharactersList = document.querySelector(".characters-all")!;
+
 // CONTROL FAVORITES
 
 function favoriteControl() {
-  const favoriteElement = document.querySelectorAll(".favorite-toggle");
-
   favoriteElement?.forEach((element) =>
     element.addEventListener("click", (event) => {
       const target = event.target as Element;
@@ -83,10 +88,7 @@ function favoriteControl() {
       const favoriteElement = favorites?.find(
         (element) => element.id === targetId
       );
-      const favoritesCharactersList = document.querySelector(
-        ".characters-favorites"
-      )!;
-      const allCharactersList = document.querySelector(".characters-all")!;
+
 
       // Remove from favorites
       if (favoriteElement) {
@@ -104,7 +106,7 @@ function favoriteControl() {
         // update ui
         favoritesCharactersList.querySelector(
           `[data-id="${targetId}"]`
-        )!.outerHTML = "";
+        )!.remove();
       }
 
       // Add to favorites
@@ -160,3 +162,5 @@ function searchControl() {
     );
   });
 }
+
+// TOOLTIP

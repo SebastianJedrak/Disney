@@ -27,6 +27,7 @@ async function getData() {
     //add listeners
     favoriteControl();
     searchControl();
+    tooltipControl();
   } catch (err) {
     // Error Handle
     console.error(err.message);
@@ -162,3 +163,12 @@ function searchControl() {
 }
 
 // TOOLTIP
+function tooltipControl() {
+  searchCharacters.forEach((element) =>
+    element.addEventListener("mouseover", (event) => {
+      const target = event.target as Element;
+      const tvElement = target.closest(".tv-icon");
+      if (!tvElement) return;
+    })
+  );
+}

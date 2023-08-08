@@ -87,9 +87,10 @@ li {
 /* TOOLTIP */
 
 .tooltip {
-    position: absolute;
+  position: absolute;
   bottom: 30px;
   left: 15px;
+  white-space: pre;
   background-color: blue;
   padding: 0.6rem;
   border-radius: 5px;

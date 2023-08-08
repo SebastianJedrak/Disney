@@ -6,6 +6,7 @@
   --lightColor: #F3FFE2;
   --darkColor: #010414;
   --accentColor: #ffc324;
+  --primaryTransparentColor: #10818e3e;
 }
 
 
@@ -60,6 +61,9 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--accentColor)
+}
 
 /* CONTAINERS */
 
@@ -119,7 +123,16 @@ footer p > a {
 footer button {
   margin-top: 1rem;
   padding: .6rem;
+  cursor: pointer;
+  background-color: var(--accentColor);
+  color: var(--darkColor);
+  border-radius: 5px;
 }
+
+footer button a:hover {
+  color: var(--darkColor) ;
+}
+
 
 /* SEARCH */
 .search-section {
@@ -139,7 +152,7 @@ footer button {
 }
 
 .search-bar {
-  height: 32px;
+  height: 40px;
   width: 100%;
   max-width: 500px;
 }
@@ -159,7 +172,7 @@ footer button {
 /* CARD */
 
 .content-card {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primaryTransparentColor);
   width: 100%;
   height: max-content;
   padding: 0 0.6rem 0.3rem;
@@ -189,7 +202,11 @@ footer button {
   display: inline-block;
   width: 48px;
   height: 48px;
-  
+  transition: all .1s linear;
+}
+
+.star:hover {
+  transform: scale(1.2);
 }
 
 .tv-icon {

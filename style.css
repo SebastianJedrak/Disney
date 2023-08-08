@@ -21,8 +21,18 @@ caption {
   margin-bottom: 2rem;
 }
 
+h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 li {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* CONTAINERS */
@@ -30,6 +40,10 @@ li {
 .row-container {
   display: flex;
   justify-content: space-between;
+}
+
+.align-bottom-container {
+  align-items: end;
 }
 
 .card {
@@ -45,9 +59,20 @@ li {
   background-color: blueviolet;
 }
 
+header {
+  margin-bottom: 2.5vw;
+}
+
 .hidden {
   display: none;
 }
+
+/* NAVIGATION */
+
+nav span {
+  margin-right: 1rem;
+}
+
 
 /* IMG */
 

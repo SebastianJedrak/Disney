@@ -69,7 +69,7 @@ export function renderList(
 }
 
 //RENDER LIST OF CARDS
-function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
+export function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
   const htmlToInject = data
     .map(
       (element) =>

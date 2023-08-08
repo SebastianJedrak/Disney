@@ -1,5 +1,5 @@
 import { fetchResultsType, favoritesType } from "./types";
-import { renderHtml } from "./view";
+import { renderCard, renderHtml } from "./view";
 
 //FETCH FROM LOCAL STORAGE
 if (!JSON.parse(localStorage.getItem("favorites")!))
@@ -13,7 +13,7 @@ async function getData() {
   const url = `https://api.disneyapi.dev/character?pageSize=100`;
   const options = {
     method: "GET",
-    mode: 'cors' as RequestMode,
+    mode: "cors" as RequestMode,
     headers: {
       "Content-Type": "application/json",
     },
@@ -28,13 +28,21 @@ async function getData() {
     const data: fetchResultsType = await fetchJson.json();
     transformedData = dataFavoritesConcat(data);
 
-    //render html
-    renderHtml(transformedData);
+    //Home route
+    if (window.location.pathname === "/") {
+      //render html
+      renderHtml(transformedData);
 
-    //add listeners
-    favoriteControl();
-    searchControl();
-    tooltipControl();
+      //add listeners
+      favoriteControl();
+      searchControl();
+      tooltipControl();
+    }
+
+    //Favorites route
+    if (window.location.pathname === "/favorites.html") {
+      renderFavorites(transformedData);
+    }
   } catch (err) {
     // Error Handle
     console.error(err.message);
@@ -192,4 +200,14 @@ function tooltipControl() {
       tvElement.querySelector(".tooltip")!.classList.add("hidden");
     })
   );
+}
+
+// Render Favorites Route
+
+function renderFavorites(data: fetchResultsType["data"]) {
+  const rootElement = document.querySelector(".favorite-favorite-characters")!;
+  const onlyFavoritesFilter = data.filter(
+    (element) => element.isFavorite === true
+  );
+  renderCard(onlyFavoritesFilter, rootElement);
 }

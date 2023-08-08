@@ -98,7 +98,6 @@ nav span {
   display: flex;
   justify-content: end;
   align-items: center;
-  
 }
 
 .search-section h3 {
@@ -135,6 +134,12 @@ nav span {
   width: 100%;
   height: max-content;
   padding: 0.8rem;
+}
+
+.content-card h5 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .img-card {
@@ -197,6 +202,11 @@ nav span {
   background-color: inherit;
 }
 
+@media (max-width: 1000px) {
+  .content-card h5 {
+    max-width: 7ch;
+  }
+}
 
 @media (max-width: 650px) {
   .row-container {
@@ -208,9 +218,12 @@ nav span {
     background: brown;
   }
   .search-container {
-    width: 40vw
+    width: 40vw;
   }
   .search-bar {
-    width: 100%
+    width: 100%;
+  }
+  .content-card h5 {
+    max-width: 100%;
   }
 }

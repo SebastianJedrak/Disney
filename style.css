@@ -65,6 +65,10 @@ a:hover {
   color: var(--accentColor)
 }
 
+.active-link {
+  color: var(--accentColor)
+}
+
 /* CONTAINERS */
 
 

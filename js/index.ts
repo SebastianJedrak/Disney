@@ -1,5 +1,5 @@
 import { fetchResultsType, favoritesType } from "./types";
-import { renderCard, renderHtml } from "./view";
+import { renderCard, renderError, renderHtml } from "./view";
 
 //FETCH FROM LOCAL STORAGE
 if (!JSON.parse(localStorage.getItem("favorites")!))
@@ -48,6 +48,7 @@ async function getData() {
   } catch (err) {
     // Error Handle
     console.error(err.message);
+    renderError(err.message)
   }
 }
 

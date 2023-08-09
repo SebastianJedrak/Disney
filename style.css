@@ -137,6 +137,16 @@ footer button a:hover {
   color: var(--darkColor) ;
 }
 
+/* ERROR */
+
+.error-text{
+  color: var(--secondaryColor);
+}
+
+.error-text a {
+  font-size: inherit;
+  text-decoration: underline;
+}
 
 /* SEARCH */
 .search-section {

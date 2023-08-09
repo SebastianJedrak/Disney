@@ -6,6 +6,7 @@ const favoritesCharactersList = document.querySelector(
   ".characters-favorites"
 )!;
 const topCharactersList = document.querySelector(".characters-top")!;
+const mainContainer = document.querySelector(".main-section");
 
 //RENDER HTML
 
@@ -69,7 +70,10 @@ export function renderList(
 }
 
 //RENDER LIST OF CARDS
-export function renderCard(data: fetchResultsType["data"], htmlElement: Element) {
+export function renderCard(
+  data: fetchResultsType["data"],
+  htmlElement: Element
+) {
   const htmlToInject = data
     .map(
       (element) =>
@@ -108,4 +112,9 @@ function renderSearchCount(data: fetchResultsType["data"]) {
   document
     .querySelector(".search-container")!
     .insertAdjacentHTML("afterbegin", htmlToInject);
+}
+
+//ERROR HANDLING
+export function renderError(error: Error) {
+  mainContainer!.innerHTML = `<div class="error-text"><h2>${error}</h2><h3>Service might be unavailable, please try again later or check the <a href="https://disneyapi.dev/" target="_blank">API</a></h3></div>`;
 }

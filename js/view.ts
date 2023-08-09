@@ -116,5 +116,5 @@ function renderSearchCount(data: fetchResultsType["data"]) {
 
 //ERROR HANDLING
 export function renderError(error: Error) {
-  mainContainer!.innerHTML = `<div class="error-text"><h2>${error}</h2><h3>Service might be unavailable, please try again later or check the <a href="https://disneyapi.dev/" target="_blank">API</a></h3></div>`;
+  mainContainer!.innerHTML = `<div class="error-text"><h2>${error}</h2><h3>Service might be unavailable, please try again later or check the <a href="https://disneyapi.dev/" target="_blank">API</a></h3></div> status`;
 }

@@ -71,6 +71,9 @@ a:hover {
 
 /* CONTAINERS */
 
+.main-section{
+  min-height: 80vh;
+}
 
 .row-container {
   display: flex;
@@ -291,6 +294,18 @@ th:last-child ,td:last-child {
   text-overflow: ellipsis;
 }
 
+/* FAVORITES */
+.favorite-favorite-characters{
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.favorite-favorite-characters li { 
+  width: 25%;
+}
+
+/* MEDIA */
+
 @media (max-width: 1000px) {
   .table-title {
     max-width: 7ch;
@@ -316,6 +331,15 @@ th:last-child ,td:last-child {
 }
 
 @media (max-width: 700px) {
+  .favorite-favorite-characters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .favorite-favorite-characters li {
+    width: 80%;
+  }
+
   .table-title {
     max-width: 15ch;
   }

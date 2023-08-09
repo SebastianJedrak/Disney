@@ -27,7 +27,7 @@ async function renderPage() {
       renderFavorites(transformedData);
       favoriteControl();
     }
-  } catch (err) {
+  } catch (err: any) {
     // Error Handle
     console.error(err.message);
     renderError(err.message);

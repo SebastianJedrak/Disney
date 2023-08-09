@@ -15,8 +15,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Placeholder
-
+Disney project was made for recruitment purposes. The main goal was to display Disney Characters and allow the user to choose his/her favorites. The application contains two pages: Home and Favorites tab. The Home displays all the fetch results after filtering out characters without any film. In this view, the user can add new favorite characters and delete them as well. The top three characters with the most number of the films are displayed at the top of the page. The favorite page displays all selected favorite characters and the user can also delete them from this list. 
 
 ## Installation
 

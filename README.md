@@ -9,8 +9,8 @@
 
 </div>
 
-![version](https://img.shields.io/github/last-commit/SebastianJedrak/PriceSweeper)
-![version](https://img.shields.io/github/languages/top/SebastianJedrak/PriceSweeper)
+![version](https://img.shields.io/github/last-commit/SebastianJedrak/Disney)
+![version](https://img.shields.io/github/languages/top/SebastianJedrak/Disney)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
